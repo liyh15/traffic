@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<!-- namespace：与当前xml文件对应的java接口 -->
+<mapper namespace="spring.mapper.OrderMapper">
+    <!-- 根据订单编号查询指定订单 -->
+    <select id="getOrderByOrderId" resultType="entity.MapperOrder">
+        SELECT 
+            id,
+            user_id userId,
+            status,
+            traffic_date_arrange_id trafficDateArrangeId,
+            totle_price totlePrice,
+            passenger_id passengerId,
+            type,
+            oexplain,
+            reservation,
+            return_price returnPrice,
+            distribution_address distributionAddress,
+            contact_phone contactPhone,
+            create_time createTime
+        FROM
+            tule_order
+        WHERE
+            id = #{id}         
+    </select>
+</mapper>
